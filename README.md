@@ -17,7 +17,7 @@ Example: ```app.ps1 down  app.ps1 clean app.ps1 up```
  - Go to directory '**svgapi**' ```cd svgapi```
  - Shutdown and remove docker containers: ```app.ps1 down```
  - Remove images: ```app.ps1 clean``` 
- - Run: ```git push origin master```
+ - Run: ```git pull```
  - Rebuild application: ```app.ps1 up```
 
 ## Run Application
