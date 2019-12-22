@@ -6,5 +6,20 @@
     "viewBox": "0 0 1282 721",
     "height": "100%",
     "width": "100%"
+  },
+  "rect": {
+    "class": "default",
+    "x": "0",
+    "y": "0",
+    "height": 721,
+    "width": 1282,
+    "rx": "0",
+    "ry": "0"
+  },
+  "circle": {
+    "class": "default",
+    "cx": "0",
+    "cy": "0",
+    "r": "10"
   }
 }

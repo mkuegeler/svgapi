@@ -13,6 +13,9 @@ WORKDIR /server
 
 RUN pip install -r requirements.txt
 
+# Import data into redis database
+# RUN python3 db.py
+
 EXPOSE 8000
 
 ENTRYPOINT gunicorn -w 4 -b 0.0.0.0:8000 wsgi:application
