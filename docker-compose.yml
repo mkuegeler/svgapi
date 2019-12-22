@@ -18,7 +18,7 @@ services:
     networks:  
       - svgapi_network
   redis:
-    image: redis:alpine 
+    image: redislabs/rejson:latest 
     networks:  
       - svgapi_network
     ports:

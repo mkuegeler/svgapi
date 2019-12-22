@@ -16,19 +16,24 @@ def read_json_file(f):
         return json.load(read_file)
 
 src = read_json_file("data/svg.json")
-svg = src["svg"]
+# svg = src["svg"]
 
 # Connect Redis database and insert sample json
 redis_host = 'redis'
 
 db = redis.StrictRedis(redis_host, port=6379, db=0)
-db.set('svg', str(svg))
-el = str(db.get('svg').decode('utf-8'))
+# db.set('svg', str(svg))
+# el = str(db.get('svg').decode('utf-8'))
+
+db.execute_command('JSON.SET', 'svg', '.', json.dumps(src["svg"]))
+svg = json.loads(db.execute_command('JSON.GET', 'svg'))
+
+
 
 @api.route('/svg')
 class GetSvg(Resource):
     def get(self):
-        return {'svg': el}
+        return svg
 
 @api.route('/status')
 class GetStatus(Resource):
