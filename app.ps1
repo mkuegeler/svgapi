@@ -7,6 +7,9 @@ $msg = "Call script with either 'up', 'start', 'stop', 'down', 'build'"
 # Customize image settings
 $image = "svgapi_restapp"
 
+# Repo
+$repo = "mkuegeler/svgapi:v1"
+
 # switch parameter input. Sequence: 1.down, 2.build, 3.up
 switch ($opts) {    
     up { docker-compose up -d } 
@@ -19,5 +22,7 @@ switch ($opts) {
     v { docker volume ls } # shows active volumes
     build { docker-compose build --no-cache --pull }
     clean { docker rmi $image }
+    tag {docker tag $image $repo}
+    push {docker push $repo}
     Default {$msg}
 }
