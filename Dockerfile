@@ -1,5 +1,5 @@
 # Docker with flask and gunicorn
-FROM python:3.7-alpine 
+FROM python:alpine
 
 # ADD links a local file or directory into a container, allowing you to modify the code on the fly, 
 # without having to rebuild the image.
@@ -11,7 +11,7 @@ FROM python:3.7-alpine
 ADD ./server /server
 WORKDIR /server
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip -r requirements.txt
 
 # Import data into redis database
 # RUN python3 db.py
